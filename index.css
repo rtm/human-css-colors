@@ -1,0 +1,281 @@
+/* human-css-colors/index.css: main code */
+
+/**
+ * styles/variables/hsl.css
+ *
+ * Variables for HSL.
+ */
+
+/* GLOBAL DEFINITIONS OF STANDARD HSL VALUES */
+:root {
+  --hue-red:             0;
+  --hue-orange:          30;
+  --hue-yellow:          60;
+  --hue-lime:            90;
+  --hue-green:           120;
+  --hue-aquamarine:      150;
+  --hue-cyan:            180;
+  --hue-azure:           210;
+  --hue-blue:            240;
+  --hue-purple:          270;
+  --hue-magenta:         300;
+  --hue-pink:            330;
+
+  --saturation-pure:     100%;
+  --saturation-x-bright: 80%;
+  --saturation-bright:   60%;
+  --saturation-medium:   50%;
+  --saturation-dull:     40%;
+  --saturation-x-dull:   20%;
+  --saturation-gray:     0%;
+
+  --lightness-white:     100%;
+  --lightness-x-light:   80%;
+  --lightness-light:     60%;
+  --lightness-dark:      40%;
+  --lightness-x-dark:    20%;
+  --lightness-black:     0%;
+
+  --alpha-opaque:        1.0;
+  --alpha-translucent:   0.8;
+  --alpha-x-translucent: 0.6;
+  --alpha-transparent:   0.0;
+
+  /* Overfide these values to change global defaults. */
+  --default-hue:         240;
+  --default-saturation:  75%;
+  --default-lightness:   50%;
+  --default-alpha:       1.0;
+
+  --global-hue:          var(--default-hue);
+  --global-saturation:   var(--default-saturation);
+  --global-lightness:    var(--default-lightness);
+  --global-alpha:        var(--default-alpha);
+}
+
+* {
+  --hue:        var(--global-hue);
+  --lightness:  var(--global-lightness);
+  --saturation: var(--global-saturation);
+  --alpha:      var(--global-alpha);
+
+  --color: hsla(var(--hue, 0), var(--saturation, 50%), var(--lightness, 50%), var(--alpha, 1.0));
+}
+
+.red        { --hue: var(--hue-red);        }
+.orange     { --hue: var(--hue-orange);     }
+.yellow     { --hue: var(--hue-yellow);     }
+.lime       { --hue: var(--hue-lime);       }
+.green      { --hue: var(--hue-green);      }
+.aquamarine { --hue: var(--hue-aquamarine); }
+.cyan       { --hue: var(--hue-cyan);       }
+.azure      { --hue: var(--hue-azure);      }
+.blue       { --hue: var(--hue-blue);       }
+.purple     { --hue: var(--hue-purple);     }
+.magenta    { --hue: var(--hue-magenta);    }
+.pink       { --hue: var(--hue-pink);       }
+
+.pure       { --saturation: var(--saturation-pure);     }
+.x-bright   { --saturation: var(--saturation-x-bright); }
+.bright     { --saturation: var(--saturation-bright);   }
+.dull       { --saturation: var(--saturation-dull);     }
+.x-dull     { --saturation: var(--saturation-x-dull);   }
+.gray       { --saturation: var(--saturation-gray);     }
+
+.purer      { --saturation: calc(var(--global-saturation) + 10%); }
+.brighter   { --saturation: calc(var(--global-saturation) + 10%); }
+.duller     { --saturation: calc(var(--global-saturation) - 10%); }
+.grayer     { --saturation: calc(var(--global-saturation) - 10%); }
+.x-purer      { --saturation: calc(var(--global-saturation) + 20%); }
+.x-brighter   { --saturation: calc(var(--global-saturation) + 20%); }
+.x-duller     { --saturation: calc(var(--global-saturation) - 20%); }
+.x-grayer     { --saturation: calc(var(--global-saturation) - 20%); }
+
+.white      { --lightness: var(--lightness-white);      }
+.x-light    { --lightness: var(--lightness-x-light);    }
+.light      { --lightness: var(--lightness-light);      }
+.dark       { --lightness: var(--lightness-dark);       }
+.x-dark     { --lightness: var(--lightness-x-dark);     }
+.black      { --lightness: var(--lightness-black);      }
+
+.whiter     { --lightness: calc(var(--global-lightness) + 10%); }
+.lighter    { --lightness: calc(var(--global-lightness) + 10%); }
+.x-whiter   { --lightness: calc(var(--global-lightness) + 20%); }
+.x-lighter  { --lightness: calc(var(--global-lightness) + 20%); }
+.darker     { --lightness: calc(var(--global-lightness) - 10%); }
+.blacker    { --lightness: calc(var(--global-lightness) - 10%); }
+.x-darker   { --lightness: calc(var(--global-lightness) - 20%); }
+.x-blacker  { --lightness: calc(var(--global-lightness) - 20%); }
+
+-opaque        { --alpha: var(--alpha-opaque);          }
+-translucent   { --alpha: var(--translucent);           }
+-x-translucent { --alpha: var(--alpha-x-translucent);   }
+-transparent   { --alpha: var(--alpha-transparent);     }
+
+.currentColor { --color: currentColor; }
+
+/* RESET GLOBALS USING `hue`, `saturation`, `lightness` and `alpha` classes */
+.hue.red             { --global-hue: var(--hue-red);        }
+.hue.orange          { --global-hue: var(--hue-orange);     }
+.hue.yellow          { --global-hue: var(--hue-yellow);     }
+.hue.lime            { --global-hue: var(--hue-lime);       }
+.hue.green           { --global-hue: var(--hue-green);      }
+.hue.aquamarine      { --global-hue: var(--hue-aquamarine); }
+.hue.cyan            { --global-hue: var(--hue-cyan);       }
+.hue.azure           { --global-hue: var(--hue-azure);      }
+.hue.blue            { --global-hue: var(--hue-blue);       }
+.hue.purple          { --global-hue: var(--hue-purple);     }
+.hue.magenta         { --global-hue: var(--hue-magenta);    }
+.hue.pine            { --global-hue: var(--hue-pink);       }
+
+.saturation.pure     { --global-saturation: var(--saturation-pure);     }
+.saturation.x-bright { --global-saturation: var(--saturation-x-bright); }
+.saturation.bright   { --global-saturation: var(--saturation-bright);   }
+.saturation.dull     { --global-saturation: var(--saturation-dull);     }
+.saturaation.x-dull  { --global-saturation: var(--saturation-x-dull);   }
+.satuation.gray      { --global-saturation: var(--saturation-gray);     }
+
+.lightness.white     { --global-lightness: var(--lightness-white);      }
+.lightness.x-light   { --global-lightness: var(--lightness-x-light);    }
+.lightness.light     { --global-lightness: var(--lightness-light);      }
+.lightness.dark      { --global-lightness: var(--lightness-dark);       }
+.lightness.x-dark    { --global-lightness: var(--lightness-x-dark);     }
+.lightness.black     { --global-lightness: var(--lightness-black);      }
+
+.alpha-opaque        { --global-alpha: var(--alpha-opaque);             }
+.alpha-translucent   { --global-alpha: var(--translucent);              }
+.alpha-x-translucent { --global-alpha: var(--alpha-x-translucent);      }
+
+
+/* HTML COLORS */
+.aliceblue { --color: aliceblue; }
+.antiquewhite { --color: antiquewhite; }
+.aqua { --color: aqua; }
+.aquamarine.color { --color: aquamarine; }
+.azure.color { --color: azure; }
+.beige { --color: beige; }
+.bisque { --color: bisque; }
+.blanchedalmond { --color: blanchedalmond; }
+.blue.color { --color: blue; }
+.blueviolet { --color: blueviolet; }
+.brown { --color: brown; }
+.burlywood { --color: burlywood; }
+.cadet { --color: cadet; }
+.chartreuse { --color: chartreuse; }
+.chocolate { --color: chocolate; }
+.coral { --color: coral; }
+.cornflower { --color: cornflower; }
+.cornsilk { --color: cornsilk; }
+.crimson { --color: crimson; }
+.cyan.color { --color: cyan; }
+.darkblue { --color: darkblue; }
+.darkcyan { --color: darkcyan; }
+.darkgoldenrod { --color: darkgoldenrod; }
+.darkgray { --color: darkgray; }
+.darkgreen { --color: darkgreen; }
+.darkkhaki { --color: darkkhaki; }
+.darkmagenta { --color: darkmagenta; }
+.darkolivegreen { --color: darkolivegreen; }
+.darkorange { --color: darkorange; }
+.darkorchid { --color: darkorchid; }
+.darkred { --color: darkred; }
+.darksalmon { --color: darksalmon; }
+.darkseagreen { --color: darkseagreen; }
+.darkslateblue { --color: darkslateblue; }
+.darkslategray { --color: darkslategray; }
+.darkturquoise { --color: darkturquoise; }
+.darkviolet { --color: darkviolet; }
+.deeppink { --color: deeppink; }
+.deepskyblue { --color: deepskyblue; }
+.dimgray { --color: dimgray; }
+.dodger { --color: dodger; }
+.gainsboro { --color: gainsboro; }
+.green.color { --color: webgreen; }
+.greenyellow { --color: greenyellow; }
+.honeydew { --color: honeydew; }
+.hotpink { --color: hotpink; }
+.indianred { --color: indianred; }
+.indigo { --color: indigo; }
+.ivory { --color: ivory; }
+.khaki { --color: khaki; }
+.lavender { --color: lavender; }
+.lavenderblush { --color: lavenderblush; }
+.lawngreen { --color: lawngreen; }
+.lemonchiffon { --color: lemonchiffon; }
+.lightblue { --color: lightblue; }
+.lightcoral { --color: lightcoral; }
+.lightcyan { --color: lightcyan; }
+.lightgoldenrod { --color: lightgoldenrod; }
+.lightgray { --color: lightgray; }
+.lightgreen { --color: lightgreen; }
+.lightpink { --color: lightpink; }
+.lightsalmon { --color: lightsalmon; }
+.lightseagreen { --color: lightseagreen; }
+.lightskyblue { --color: lightskyblue; }
+.lightslategray { --color: lightslategray; }
+.lightsteelblue { --color: lightsteelblue; }
+.lightyellow { --color: lightyellow; }
+.lime.color { --color: lime; }
+.limegreen { --color: limegreen; }
+.linen { --color: linen; }
+.magenta.color { --color: magenta; }
+.maroon { --color: maroon; }
+.webmaroon { --color: webmaroon; }
+.mediumaquamarine { --color: mediumaquamarine; }
+.mediumblue { --color: mediumblue; }
+.mediumorchid { --color: mediumorchid; }
+.mediumpurple { --color: mediumpurple; }
+.mediumseagreen { --color: mediumseagreen; }
+.mediumslateblue { --color: mediumslateblue; }
+.mediumspringgreen { --color: mediumspringgreen; }
+.mediumturquoise { --color: mediumturquoise; }
+.mediumvioletred { --color: mediumvioletred; }
+.midnightblue { --color: midnightblue; }
+.mintcream { --color: mintcream; }
+.mistyrose { --color: mistyrose; }
+.moccasin { --color: moccasin; }
+.navajowhite { --color: navajowhite; }
+.oldlace { --color: oldlace; }
+.olive { --color: olive; }
+.olivedrab { --color: olivedrab; }
+.orange.color { --color: orange; }
+.orangered { --color: orangered; }
+.orchid { --color: orchid; }
+.palegoldenrod { --color: palegoldenrod; }
+.paleturquoise { --color: paleturquoise; }
+.palevioletred { --color: palevioletred; }
+.papayawhip { --color: papayawhip; }
+.peachpuff { --color: peachpuff; }
+.peru { --color: peru; }
+.pink.color { --color: pink; }
+.plum { --color: plum; }
+.powderblue { --color: powderblue; }
+.purple.color { --color: purple; }
+.webpurple { --color: webpurple; }
+.rebeccapurple { --color: rebeccapurple; }
+.red.color { --color: red; }
+.rosybrown { --color: rosybrown; }
+.royalblue { --color: royalblue; }
+.saddlebrown { --color: saddlebrown; }
+.salmon { --color: salmon; }
+.sandybrown { --color: sandybrown; }
+.seagreen { --color: seagreen; }
+.seashell { --color: seashell; }
+.sienna { --color: sienna; }
+.silver { --color: silver; }
+.skyblue { --color: skyblue; }
+.slateblue { --color: slateblue; }
+.slategray { --color: slategray; }
+.snow { --color: snow; }
+.springgreen { --color: springgreen; }
+.steelblue { --color: steelblue; }
+.tan { --color: tan; }
+.teal { --color: teal; }
+.thistle { --color: thistle; }
+.tomato { --color: tomato; }
+.turquoise { --color: turquoise; }
+.violet { --color: violet; }
+.wheat { --color: wheat; }
+.whitesmoke { --color: whitesmoke; }
+.yellow.color { --color: yellow; }
+.yellowgreen { --color: yellowgreen; }
