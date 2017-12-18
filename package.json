@@ -1,6 +1,6 @@
 {
   "name":        "@rtm/human-css-colors",
-  "version":     "0.2.0",
+  "version":     "0.2.1",
   "description": "CSS classes for specifying colors in a human-friendly way",
   "main":        "index.js",
   "repository": {"type": "git", "url": "git+https://github.com/rtm/human-css-colors.git"},
