@@ -42,8 +42,8 @@
   --alpha-transparent:   0.0;
 
   /* Overfide these values to change global defaults. */
-  --default-hue:         240;
-  --default-saturation:  75%;
+  --default-hue:         var(--hue-red);
+  --default-saturation:  var(--saturation-dull);
   --default-lightness:   50%;
   --default-alpha:       1.0;
 
@@ -53,11 +53,12 @@
   --global-alpha:        var(--default-alpha);
 }
 
-* {
-  --hue:        var(--global-hue);
-  --lightness:  var(--global-lightness);
+/* Do no color calculation unless the `color` attribute is present. */
+[color] {
+  --hue: var(--global-hue);
   --saturation: var(--global-saturation);
-  --alpha:      var(--global-alpha);
+  --lightness: var(--global-lightness);
+  --alpha: var(--global-alpha);
 
   --color: hsla(var(--hue, 0), var(--saturation, 50%), var(--lightness, 50%), var(--alpha, 1.0));
 }
@@ -86,10 +87,10 @@
 [brighter]   { --saturation: calc(var(--global-saturation) + 10%); }
 [duller]     { --saturation: calc(var(--global-saturation) - 10%); }
 [grayer]     { --saturation: calc(var(--global-saturation) - 10%); }
-[x-purer]      { --saturation: calc(var(--global-saturation) + 20%); }
-[x-brighter]   { --saturation: calc(var(--global-saturation) + 20%); }
-[x-duller]     { --saturation: calc(var(--global-saturation) - 20%); }
-[x-grayer]     { --saturation: calc(var(--global-saturation) - 20%); }
+[x-purer]    { --saturation: calc(var(--global-saturation) + 20%); }
+[x-brighter] { --saturation: calc(var(--global-saturation) + 20%); }
+[x-duller]   { --saturation: calc(var(--global-saturation) - 20%); }
+[x-grayer]   { --saturation: calc(var(--global-saturation) - 20%); }
 
 [white]      { --lightness: var(--lightness-white);      }
 [x-light]    { --lightness: var(--lightness-x-light);    }
@@ -142,21 +143,21 @@
 [lightness][x-dark]    { --global-lightness: var(--lightness-x-dark);     }
 [lightness][black]     { --global-lightness: var(--lightness-black);      }
 
-[alpha-opaque]        { --global-alpha: var(--alpha-opaque);             }
-[alpha-translucent]   { --global-alpha: var(--translucent);              }
-[alpha-x-translucent] { --global-alpha: var(--alpha-x-translucent);      }
+[alpha][opaque]        { --global-alpha: var(--alpha-opaque);             }
+[alpha][translucent]   { --global-alpha: var(--translucent);              }
+[alpha][x-translucent] { --global-alpha: var(--alpha-x-translucent);      }
 
 
 /* HTML COLORS */
 [aliceblue] { --color: aliceblue; }
 [antiquewhite] { --color: antiquewhite; }
 [aqua] { --color: aqua; }
-[aquamarine][color] { --color: aquamarine; }
-[azure][color] { --color: azure; }
+[aquamarine][html] { --color: aquamarine; }
+[azure][html] { --color: azure; }
 [beige] { --color: beige; }
 [bisque] { --color: bisque; }
 [blanchedalmond] { --color: blanchedalmond; }
-[blue][color] { --color: blue; }
+[blue][html] { --color: blue; }
 [blueviolet] { --color: blueviolet; }
 [brown] { --color: brown; }
 [burlywood] { --color: burlywood; }
@@ -167,7 +168,7 @@
 [cornflower] { --color: cornflower; }
 [cornsilk] { --color: cornsilk; }
 [crimson] { --color: crimson; }
-[cyan][color] { --color: cyan; }
+[cyan][html] { --color: cyan; }
 [darkblue] { --color: darkblue; }
 [darkcyan] { --color: darkcyan; }
 [darkgoldenrod] { --color: darkgoldenrod; }
@@ -190,7 +191,7 @@
 [dimgray] { --color: dimgray; }
 [dodger] { --color: dodger; }
 [gainsboro] { --color: gainsboro; }
-[green][color] { --color: webgreen; }
+[green][html] { --color: webgreen; }
 [greenyellow] { --color: greenyellow; }
 [honeydew] { --color: honeydew; }
 [hotpink] { --color: hotpink; }
@@ -215,10 +216,10 @@
 [lightslategray] { --color: lightslategray; }
 [lightsteelblue] { --color: lightsteelblue; }
 [lightyellow] { --color: lightyellow; }
-[lime][color] { --color: lime; }
+[lime][html] { --color: lime; }
 [limegreen] { --color: limegreen; }
 [linen] { --color: linen; }
-[magenta][color] { --color: magenta; }
+[magenta][html] { --color: magenta; }
 [maroon] { --color: maroon; }
 [webmaroon] { --color: webmaroon; }
 [mediumaquamarine] { --color: mediumaquamarine; }
@@ -238,7 +239,7 @@
 [oldlace] { --color: oldlace; }
 [olive] { --color: olive; }
 [olivedrab] { --color: olivedrab; }
-[orange][color] { --color: orange; }
+[orange][html] { --color: orange; }
 [orangered] { --color: orangered; }
 [orchid] { --color: orchid; }
 [palegoldenrod] { --color: palegoldenrod; }
@@ -247,13 +248,13 @@
 [papayawhip] { --color: papayawhip; }
 [peachpuff] { --color: peachpuff; }
 [peru] { --color: peru; }
-[pink][color] { --color: pink; }
+[pink][html] { --color: pink; }
 [plum] { --color: plum; }
 [powderblue] { --color: powderblue; }
-[purple][color] { --color: purple; }
+[purple][html] { --color: purple; }
 [webpurple] { --color: webpurple; }
 [rebeccapurple] { --color: rebeccapurple; }
-[red][color] { --color: red; }
+[red][html] { --color: red; }
 [rosybrown] { --color: rosybrown; }
 [royalblue] { --color: royalblue; }
 [saddlebrown] { --color: saddlebrown; }
@@ -277,5 +278,5 @@
 [violet] { --color: violet; }
 [wheat] { --color: wheat; }
 [whitesmoke] { --color: whitesmoke; }
-[yellow][color] { --color: yellow; }
+[yellow][html] { --color: yellow; }
 [yellowgreen] { --color: yellowgreen; }

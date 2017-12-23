@@ -5,13 +5,13 @@ HUMAN CSS COLORS
 It is a sister repo to `human-css-numbers` and `human-css-classes`
 (and used by the latter).
 
-It exposes a single custom property named `--color` which you may use as you see fit.
+It exposes a single custom property on designated elements named `--color` which you may use as you see fit.
 
 Summary
 -------
 
 ```
-<span dark red>
+<span dark red color>
 ```
 
 Colors are specified using the flexible HSL model.
@@ -23,20 +23,20 @@ and with additional micro-classes for lightness,
 including `white`, `x-light`, `light`, `dark`, `x-dark`, and `black`.
 
 In addition, any HTML color, such as `steelblue`, can be used as an attribute to specify the desired color.
-To distinguish HTML colors from hues of the same name, add the attribute `color`, as in `color red`.
+To distinguish HTML colors from hues of the same name, add the attribute `html`, as in `html red`.
 
 Global HSL values
 -----------------
 
-You may set "global" HSL values, which apply to all child elements,
-using the `hue`, `lightness`, `saturation`, and `alpha` micro-attributes.
-For example, in conjunction with a micro-class library such as `human-css-classes`,
-the following will yield a red bordered div, with red text:
+The actual application of a color to a specific element is triggered by the presence of the `color` attribute.
+Without that, you are setting the hue, saturation, lightness, or alpha value for child elements.
+For example, in conjunction with a micro-class/attribute library  such as `human-css-classes`,
+the following will yield a red bordered div, with lighter red text:
 
 ```
 <div hue red>
-  <div thick border>
-    <div lighter text>
+  <div thick border color>
+    <div lighter text color>
 ```
 
 The global HSL values may be modified for a particular element by the attributes
@@ -47,6 +47,7 @@ usage
 ------------
 
     npm install --save-dev rtm@human-css-colors
+    yarn add rtm@human-css-colors
 
 Then, in some file that a CSS processor will process:
 
